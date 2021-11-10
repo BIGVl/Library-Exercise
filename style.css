@@ -1,0 +1,13 @@
+.books {
+    background-color: #AB5500;
+    width: 40vw;
+    height: 40vh;
+
+};
+
+.bookToDisplay {
+
+    background-color:#449999;
+    width: 5vw;
+    height: 10vh;
+}
