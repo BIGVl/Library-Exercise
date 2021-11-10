@@ -1,13 +1,23 @@
+
+
+
 .books {
     background-color: #AB5500;
-    width: 40vw;
-    height: 40vh;
+    width: 70vw;
+    height: 80vh;
 
-};
+}
 
-.bookToDisplay {
+.theBook {
+    background-color: chartreuse;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    width: 20vw;
+    height: 10vw;
+}
 
-    background-color:#449999;
-    width: 5vw;
-    height: 10vh;
+.theTitle {
+    color: blue;
 }

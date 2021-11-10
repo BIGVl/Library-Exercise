@@ -1,6 +1,7 @@
 //Creating important variables and setting the DOM
 const books = document.querySelector('.books');
 
+
 let myLibrary = [];
 
 
@@ -29,11 +30,18 @@ function addBookToLibrary (title, author, pages, read) {
 function displayBooks () {
 
     myLibrary.forEach(book=>{
+       theBook = document.createElement('div');
        let newTitle = document.createElement('div');
        let newAuthor = document.createElement('div');
        let newPages = document.createElement('div');
        let newRead = document.createElement('div');
-       let bookToDisplay = document.createElement('div');
+ 
+       theBook.classList.add('theBook');
+       newTitle.classList.add('theTitle');
+       newAuthor.classList.add('newAuthor');
+       newPages.classList.add('newPages');
+       newRead.classList.add('newRead');
+       
 
 
         newTitle.textContent = book.title;
@@ -41,12 +49,19 @@ function displayBooks () {
         newPages.textContent = book.pages;
         newRead.textContent = book.read;
 
-        bookToDisplay.appendChild(newTitle).className = 'newTitle';
-        bookToDisplay.appendChild(newAuthor).className = 'newAuthor';
-        bookToDisplay.appendChild(newPages).className = 'newPages';
-        bookToDisplay.appendChild(newRead).className = 'newRead';
-        books.appendChild(bookToDisplay).className = 'bookToDisplay';
+        books.appendChild(theBook)
+        theBook.appendChild(newTitle)
+        theBook.appendChild(newAuthor) 
+        theBook.appendChild(newPages) 
+        theBook.appendChild(newRead) 
+    
+        
+        
 
     })
     
 };
+
+addBookToLibrary('check','check','check','check');
+addBookToLibrary('check','check','check','check');
+
