@@ -1,6 +1,8 @@
 //Creating important variables and setting the DOM
 const books = document.querySelector('.books');
 const btnAdd = document.querySelector('.addBook');
+let deleteB;
+
 
 
 let myLibrary = [];
@@ -31,38 +33,57 @@ function addBookToLibrary (title, author, pages, read) {
 //Displays the library and gets updated each time the user adds a new one 
 function displayBooks () {
 
-let theBook
+let theBook;
 
 
     myLibrary.forEach(newBook=>{
 
         if(theBook!=undefined) books.removeChild(theBook);
 
-       theBook = document.createElement('div');
-       let newTitle = document.createElement('div');
-       let newAuthor = document.createElement('div');
-       let newPages = document.createElement('div');
-       let newRead = document.createElement('div');
+        theBook = document.createElement('div');
+        let newTitle = document.createElement('div');
+        let newAuthor = document.createElement('div');
+        let newPages = document.createElement('div');
+        let ifRead = document.createElement('div');
+        let newRead = document.createElement('input');
+        newRead.setAttribute('type', 'checkbox');
+        newRead.setAttribute('id', "theRead")
+        let newLabel = document.createElement('label');
+        newLabel.setAttribute('for', 'theRead')
+        newLabel.textContent = 'Have you read it?'
+        let deleteB = document.createElement('button');
+        deleteB.textContent = 'Delete';
+        
 
  
        theBook.classList.add('theBook');
        newTitle.classList.add('theTitle');
        newAuthor.classList.add('theAuthor');
        newPages.classList.add('thePages');
+       ifRead.classList.add('ifRead')
        newRead.classList.add('theRead');
+       deleteB.classList.add('delete')
+       
+
+       
        
 
 
        newTitle.textContent = newBook.title;
-       newAuthor.textContent = newBook.author;
-       newPages.textContent = newBook.pages;
+       newAuthor.textContent = 'by ' + newBook.author;
+       newPages.textContent = newBook.pages + ' pages';
        newRead.textContent = newBook.read;
+       
 
         books.appendChild(theBook)
         theBook.appendChild(newTitle)
         theBook.appendChild(newAuthor) 
-        theBook.appendChild(newPages) 
-        theBook.appendChild(newRead) 
+        theBook.appendChild(newPages)
+        ifRead.appendChild(newLabel) 
+        ifRead.appendChild(newRead)
+        theBook.appendChild(ifRead)
+        theBook.appendChild(deleteB)
+         
     
       
         
@@ -73,8 +94,30 @@ let theBook
     
 };
 
+function deleteButton () {
+
+    if(deleteB===undefined) return;
+
+    deleteB.addEventListener('click', ()=>{
+
+    })
+}
+
 addBookToLibrary('check','check','check','check');
 addBookToLibrary('check2','check2','check2','check2');
 addBookToLibrary('check3','check3','check3','check3');
 addBookToLibrary('check4','check4','check4','check4');
 addBookToLibrary('check5','check5','check5','check5');
+addBookToLibrary('check5','check5','check5','check5');
+addBookToLibrary('check5','check5','check5','check5');
+addBookToLibrary('check5','check5','check5','check5');
+addBookToLibrary('check5','check5','check5','check5');
+addBookToLibrary('check5','check5','check5','check5');
+addBookToLibrary('check5','check5','check5','check5');
+addBookToLibrary('check5','check5','check5','check5');
+addBookToLibrary('check5','check5','check5','check5');
+addBookToLibrary('check5','check5','check5','check5');
+addBookToLibrary('check5','check5','check5','check5');
+addBookToLibrary('check5','check5','check5','check5');
+
+myLibrary.splice(2, 1);

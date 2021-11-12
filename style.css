@@ -1,42 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Merienda+One&family=Quicksand:wght@500&display=swap');
+
 *, *::after, *::before {
     box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #55bcc9;
+    font-family: 'Merienda One', cursive;
+
 }
 
 header {
     height: 28vh;
+    display: flex;
+}
+
+img {
+    width: 10vw;
+    height: 10vw;
+}
+
+.library {
+
+    font-size: 50px;
+    padding-left: 5px;
+
+    
+}
+
+.addBook {
+    align-self: center;
+    justify-self: center;
+    font-family: 'Merienda One', cursive;
+    margin-left: 20vw;
+    margin-bottom: 5vw;
+    height: 4rem;
+    width: 8rem;
+    background-color: #fc4445;
+    color:#EEF;
+    font-size: 20px;
+    border: none;
+    border-radius: 15px;
+    transition: all 0.5s;
+
+}
+
+.addBook:hover {
+    height: 6rem;
+    width: 10rem;
+    margin-left: 19.5vw;
+    font-size: 24px;
 }
 
 
 .books {
     display: flex;
     flex-wrap: wrap;
-    background-color: #AB5500;
-    width: 100vw;
-    height: 70vh;
+    background-color: #fc4445;
     gap: 30px;
+    margin-left: 1vw;
+    border-radius: 50px;
+    padding-left: 3vw;
+    padding-bottom: 2rem;
+    margin-right: 1vw;
     
     
     
 }
 
 .theBook {
-    background-color: chartreuse;
+    background-color: #cafafe;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1em;
     height: 40%;
-    width: 15%;
+    width: 14%;
     margin-top: 30px;
+    
    
  
 }
 
 .theTitle {
-    color: blue;
     align-self: flex-start;
     padding-left: 8%;
-    background-color:bisque;
+    background-color:#97caef;
     width:100%;
     height: 20%;
+    
+}
+.ifRead {
+    display: flex;
+    justify-content: space-evenly;
+   background-color: #3feee6;
+   width: 100%;
+}
+
+.theRead {
+    height: 20px;
+    width: 20px;
+    
+    
+}   
+
+.delete {
+    height: 25px;
+    width: 80px;
+    font-family: 'Merienda One', cursive;
+    background-color:#fc4445 ;
+    border: none;
+    margin-bottom: 2%;
+    margin-right: 2%;
+    align-self: flex-end;
 }
