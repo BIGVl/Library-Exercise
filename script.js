@@ -1,7 +1,7 @@
 //Creating important variables and setting the DOM
 const books = document.querySelector('.books');
 const btnAdd = document.querySelector('.addBook');
-let deleteB;
+let deleteB = document.createElement('button');
 
 
 
@@ -35,11 +35,12 @@ function displayBooks () {
 
 let theBook;
 
-
     myLibrary.forEach(newBook=>{
-
+       
         if(theBook!=undefined) books.removeChild(theBook);
+        
 
+       
         theBook = document.createElement('div');
         let newTitle = document.createElement('div');
         let newAuthor = document.createElement('div');
@@ -54,7 +55,7 @@ let theBook;
         let deleteB = document.createElement('button');
         deleteB.textContent = 'Delete';
         
-
+      
  
        theBook.classList.add('theBook');
        newTitle.classList.add('theTitle');
@@ -64,9 +65,10 @@ let theBook;
        newRead.classList.add('theRead');
        deleteB.classList.add('delete')
        
+      
 
        
-       
+     
 
 
        newTitle.textContent = newBook.title;
@@ -83,9 +85,17 @@ let theBook;
         ifRead.appendChild(newRead)
         theBook.appendChild(ifRead)
         theBook.appendChild(deleteB)
-         
+        
+
     
-      
+      deleteB.addEventListener('click', ()=>{
+        for (let i=0; i<myLibrary.length;i++) {
+            theBook.setAttribute('data-index', i);
+         };
+         myLibrary.splice(theBook.dataset.index,1);
+         books.removeChild(theBook);
+          
+      })
         
         
         
@@ -94,30 +104,16 @@ let theBook;
     
 };
 
-function deleteButton () {
 
-    if(deleteB===undefined) return;
-
-    deleteB.addEventListener('click', ()=>{
-
-    })
-}
 
 addBookToLibrary('check','check','check','check');
 addBookToLibrary('check2','check2','check2','check2');
 addBookToLibrary('check3','check3','check3','check3');
 addBookToLibrary('check4','check4','check4','check4');
-addBookToLibrary('check5','check5','check5','check5');
-addBookToLibrary('check5','check5','check5','check5');
-addBookToLibrary('check5','check5','check5','check5');
-addBookToLibrary('check5','check5','check5','check5');
-addBookToLibrary('check5','check5','check5','check5');
-addBookToLibrary('check5','check5','check5','check5');
-addBookToLibrary('check5','check5','check5','check5');
-addBookToLibrary('check5','check5','check5','check5');
-addBookToLibrary('check5','check5','check5','check5');
-addBookToLibrary('check5','check5','check5','check5');
-addBookToLibrary('check5','check5','check5','check5');
-addBookToLibrary('check5','check5','check5','check5');
+addBookToLibrary('check6','check5','check5','check5');
+addBookToLibrary('check7','check5','check5','check5');
+addBookToLibrary('check8','check5','check5','check5');
+addBookToLibrary('check9','check5','check5','check5');
+addBookToLibrary('check10','check5','check5','check5');
+addBookToLibrary('check11','check5','check5','check5');
 
-myLibrary.splice(2, 1);
