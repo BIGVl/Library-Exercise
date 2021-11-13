@@ -18,6 +18,7 @@ function Book (title, author, pages, read) {
     this.read = read;
     
     
+    
 };
 
 //Adding the book to the library each time the user inputs a new one 
@@ -66,7 +67,9 @@ let theBook;
        deleteB.classList.add('delete')
        
       
-
+       for (let i=0; i<myLibrary.length;i++) {
+        theBook.setAttribute('data-index', i);
+     };
        
      
 
@@ -97,10 +100,7 @@ let theBook;
 
     
       deleteB.addEventListener('click', ()=>{
-        for (let i=0; i<myLibrary.length;i++) {
-            theBook.setAttribute('data-index', i);
-         };
-         myLibrary.splice(theBook.dataset.index,1);
+        
          books.removeChild(theBook);
           
       })
@@ -118,6 +118,7 @@ addBookToLibrary('check','check','check','check');
 addBookToLibrary('check2','check2','check2','check2');
 addBookToLibrary('check3','check3','check3','check3');
 addBookToLibrary('check4','check4','check4','check4');
+addBookToLibrary('check5','check5','check5','check5')
 addBookToLibrary('check6','check5','check5','check5');
 addBookToLibrary('check7','check5','check5','check5');
 addBookToLibrary('check8','check5','check5','check5');
