@@ -85,6 +85,14 @@ let theBook;
         ifRead.appendChild(newRead)
         theBook.appendChild(ifRead)
         theBook.appendChild(deleteB)
+
+
+    newRead.addEventListener('click', ()=>{
+    if (newRead.checked==true) newLabel.textContent = 'Done';
+    else newLabel.textContent = 'Have you read it?'
+    })
+
+    
         
 
     
