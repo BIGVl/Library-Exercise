@@ -122,13 +122,19 @@ img {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transition: 300ms ease-in-out;
+    transform: translate(-50%,-65%) scale(0);
     z-index: 10;
     height: 60%;
     max-height: 80%;
     border-radius: 10px;
     width: 27%;
     
+}
+#form.active {
+
+    transform: translate(-50%,-65%) scale(1);
+
 }
 
 .formHeader {
@@ -160,7 +166,6 @@ img {
     flex-direction: column;
     justify-content: space-evenly;
     padding-left: 5px;
-    padding-bottom: 40px;
 }
 
 input.title, input.author, input.pages {
@@ -172,7 +177,37 @@ input.title, input.author, input.pages {
 
 .title , .author, .pages  {
 
-    width: 300px;
+    width: 60%;
     font-size: 20px;
     height: 40px;
+}
+
+.submit-book {
+
+    align-self: center;
+    width: 70%;
+    height: 50px;
+    font-size: 1.5rem;
+    font-family: 'Merienda One', cursive;
+    background-color: #3feee6;
+    border-radius: 15px;
+    margin-top: 20px;
+
+}
+
+.overlay {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: 300ms ease-in-out;
+}
+
+.overlay.active {
+    pointer-events: all;
+    opacity: 1;
 }

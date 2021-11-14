@@ -1,7 +1,14 @@
 //Creating important variables and setting the DOM
 const books = document.querySelector('.books');
 const btnAdd = document.querySelector('.addBook');
-let deleteB = document.createElement('button');
+const closeForm = document.querySelector('.close-button');
+const submit = document.querySelector('.submit-book');
+const form = document.querySelector('#form');
+const overlay = document.querySelector('.overlay');
+const formTitle = document.querySelector('.title');
+const formAuthor = document.querySelector('.author');
+const formPages = document.querySelector('.pages');
+
 
 
 
@@ -10,12 +17,12 @@ let myLibrary = [];
 
 
 // Settings the constructor for each book that will show up in the array 'myLibrary'
-function Book (title, author, pages, read) {
+function Book (title, author, pages) {
 
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.read = read;
+    this.read = 'Have you read it?'
     
     
     
@@ -23,14 +30,46 @@ function Book (title, author, pages, read) {
 };
 
 //Adding the book to the library each time the user inputs a new one 
-function addBookToLibrary (title, author, pages, read) {
+function addBookToLibrary (title, author, pages) {
     
-    const newBook = new Book(title, author, pages, read);
+    const newBook = new Book(title, author, pages);
      myLibrary.push(newBook);
-     displayBooks();
     
 
 };
+//When the button 'Add a book' is pressed a form will pop-up so the user can enter the book's information and add it to the library 
+btnAdd.addEventListener('click', () =>{
+
+    form.classList.add('active');
+    overlay.classList.add('active');
+    
+})
+
+submit.addEventListener('click',() => {
+    if (formTitle.value==='' || formAuthor.value==='' || formPages.value==='') return;
+
+    addBookToLibrary(formTitle.value, formAuthor.value, formPages.value);
+    displayBooks();
+    formTitle.value = '';
+    formAuthor.value = '';
+    formPages.value = '';
+    form.classList.remove('active');
+    overlay.classList.remove('active');
+})
+
+//Closes the form when the user clicks on the outside the form or on the X button 
+overlay.addEventListener('click', () => {
+    form.classList.remove('active')
+    overlay.classList.remove('active');
+
+})
+closeForm.addEventListener('click', () => {
+    form.classList.remove('active')
+    overlay.classList.remove('active');
+
+});
+
+
 
 //Displays the library and gets updated each time the user adds a new one 
 function displayBooks () {
@@ -74,9 +113,9 @@ let theBook;
 
 
        newTitle.textContent = newBook.title;
-       newAuthor.textContent = newBook.author;
+       newAuthor.textContent = 'by '+ newBook.author;
        newPages.textContent = newBook.pages + ' pages';
-       newRead.textContent = newBook.read;
+       newBook.read = newLabel.textContent;
        
 
         books.appendChild(theBook)
@@ -90,8 +129,13 @@ let theBook;
 
 
     newRead.addEventListener('click', ()=>{
-    if (newRead.checked==true) newLabel.textContent = 'Done';
-    else newLabel.textContent = 'Have you read it?'
+    if (newRead.checked==true){ 
+        newLabel.textContent = 'Done';
+        newBook.read = 'Done'
+}
+    else{ newLabel.textContent = 'Have you read it?'
+    newBook.read = 'Have you read it?'
+}
     })
 
     
@@ -118,15 +162,5 @@ let theBook;
 
 
 
-addBookToLibrary('check','check','check','check');
-addBookToLibrary('check2','check2','check2','check2');
-addBookToLibrary('check3','check3','check3','check3');
-addBookToLibrary('check4','check4','check4','check4');
-addBookToLibrary('check5','check5','check5','check5')
-addBookToLibrary('check6','check5','check5','check5');
-addBookToLibrary('check7','check7','check5','check5');
-addBookToLibrary('check8','check5','check5','check5');
-addBookToLibrary('check9','check5','check5','check5');
-addBookToLibrary('check10','check5','check5','check5');
-addBookToLibrary('check11','check5','check5','check5');
+
 
