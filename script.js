@@ -19,6 +19,7 @@ function Book (title, author, pages, read) {
     
     
     
+    
 };
 
 //Adding the book to the library each time the user inputs a new one 
@@ -67,15 +68,13 @@ let theBook;
        deleteB.classList.add('delete')
        
       
-       for (let i=0; i<myLibrary.length;i++) {
-        theBook.setAttribute('data-index', i);
-     };
+     
        
      
 
 
        newTitle.textContent = newBook.title;
-       newAuthor.textContent = 'by ' + newBook.author;
+       newAuthor.textContent = newBook.author;
        newPages.textContent = newBook.pages + ' pages';
        newRead.textContent = newBook.read;
        
@@ -100,7 +99,12 @@ let theBook;
 
     
       deleteB.addEventListener('click', ()=>{
+
         
+        myLibrary = myLibrary.filter((newBook)=>{
+            if (newBook.title!=newTitle.textContent || newBook.author != newAuthor.textContent) return newBook;
+        })
+
          books.removeChild(theBook);
           
       })
@@ -120,7 +124,7 @@ addBookToLibrary('check3','check3','check3','check3');
 addBookToLibrary('check4','check4','check4','check4');
 addBookToLibrary('check5','check5','check5','check5')
 addBookToLibrary('check6','check5','check5','check5');
-addBookToLibrary('check7','check5','check5','check5');
+addBookToLibrary('check7','check7','check5','check5');
 addBookToLibrary('check8','check5','check5','check5');
 addBookToLibrary('check9','check5','check5','check5');
 addBookToLibrary('check10','check5','check5','check5');

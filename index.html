@@ -14,17 +14,28 @@
         <img src="Img/Book.jpg" alt="A book image">
         <div class="library">The Library</div>
         <button class="addBook">Add a book</button>
-        <div class="Form" id="Form">
-            <div class="formHeader">
-                <div class="choose">What book would you like to add?</div>
-                <button class="close-button">&times;</button>                
-                <input type="text" class="title">
-                <input type="text" class="author">
-                <input type="number" name="" class="pages" id="pages">
-            </div>
-        </div>
-        <div class="overlay"></div>
     </header>
    <div class="books"></div>
+
+   <div class="form" id="form">
+    <div class="formHeader">
+        <div class="form-title">What book would you like to add?</div>
+        <button class="close-button">&times;</button> 
+    </div> 
+    <div class="form-body"> 
+        <div>           
+        <input type="text" id="title" class="title">
+        <label class="title" for="title">Title</label>
+    </div>
+        <div><input type="text" id="author" class="author">
+        <label class="author" for="author">Author</label></div>
+    
+       <div> <input type="number" min="0" name="" class="pages" id="pages">
+        <label class="pages" for="pages">Number of pages</label></div>
+       </div>
+   </div> 
+</div>
+<div class="overlay"></div>
 </body>
+
 </html>
